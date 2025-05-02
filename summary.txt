@@ -1,0 +1,5 @@
+The final project that I chose to create was a Flashcard quiz app that does not include
+graphics but runs from the terminal. The app is useful because it can be used to implement 
+questions into flashcards and be used to study. 
+The part i have written is the Main loop for the program which is the user menu. 
+Next I will start writting my algorithms.
