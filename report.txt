@@ -1,0 +1,94 @@
+Cristopher Gomez  
+
+5/12/2025 
+
+CPSC-39-10106 
+
+ 
+
+Report for FlashcardStudyTool  
+
+ 
+
+The app is useful for studying. The game allows the user to create flashcards and test their knowledge, 
+create a quiz with a score at the end, 
+the opportunity to retry the questions they got wrong, 
+and lastly the ability to see and delete flashcards.  
+
+ 
+
+My three algorithms were: 
+
+ 
+
+Algorithm 1: Shuffle Algorithm (Randomizing the Quiz) 
+quizOrder.clear(); // Clear previous quiz order
+        quizOrder.addAll(flashcards.keySet()); // Add all terms to quizOrder
+        Collections.shuffle(quizOrder); // ALGORITHM 1: Shuffle the quiz order   
+The shuffle algorithm randomizes the order of the flashcards the user has input. 
+It also randomizes the order of the flashcard terms in the ArrayList quizOrder before the quiz.
+ I used the collections.shuffle() which is a java built in. The algorithm ensures that the order is clear.
+ The Big O time complexity is o(n) because every element is only interreacted with once  
+
+ 
+
+Algorithm 2: Scoring algorithm  
+
+ int correct = 0; // ALGORITHM 2: Track correct answers
+        missedCards.clear(); // Clear previous missed cards
+This algorithm's function is to count the number of correct answers obtained during the quiz. 
+Then it compares the user input to the stored definition, then incrementing the score if the answer is 
+correct. This algorithm also helps the app calculates and show the final score of the quiz. The Big 
+O time complexity is O(n) because the number of steps grows with the number of questions or flashcards. 
+
+ 
+
+Algorithm 3: The retry algorithm  
+ while (!tempQueue.isEmpty()) { // ALGORITHM 3: Retry loop through missed cards
+            String term = tempQueue.poll(); // Get the next missed card (FIFO)
+            System.out.print("Definition of '" + term + "': "); // Ask for definition
+            String answer = scanner.nextLine(); // Read user input
+            if (flashcards.get(term).equalsIgnoreCase(answer)) { // Check correctness
+                System.out.println("Correct!"); // Correct answer
+            } else {
+                System.out.println("Incorrect! Correct answer: " + flashcards.get(term)); // Show correct answer
+                missedCards.add(term); // Re-add if still incorrect
+            }
+        }
+ 
+After the quiz the app allows the user to retry the questions that they got wrong. 
+This part uses a queue; it shows the terms in the order that they were gotten incorrectly. 
+If once again it is incorrect then they are added back to the queue once again.  
+The big O time complexity is O(n) where the n is number of questions wrong which is linear.  
+
+ 
+
+Data Structures used:  
+
+    private static HashMap<String, String> flashcards = new HashMap<>(); // HashMap to store flashcards (term -> definition)
+
+    private static Queue<String> missedCards = new LinkedList<>(); // Queue to store missed flashcards for retrying
+
+    private static ArrayList<String> quizOrder = new ArrayList<>(); // ArrayList to shuffle quiz order
+
+
+HashMap: I chose a HashMap because it made storing flashcards in term-definition easy. 
+
+ArrayList: I chose to use a ArrayList to hold and shuffle the quiz function in order. 
+It was also easy to user with java built in Collections.shuffle() 
+
+Queue: I chose the Queue data structure because it stores the questions that the user got wrong in the 
+order they missed them. Queue also allows for FIFO processing in the retry function of the app.  
+
+
+One step in design or development where I encountered an opportunity was when I realized I could use a 
+queue instead of the other data structure that I had first chosen. The queue allowed for easier and more 
+efficient implementation of the retry function. 
+
+ 
+
+One step in design or development where I encountered an error was when I was trying to access 
+the retry function of my code and an error kept appearing. After a long time, the problem was that 
+I was missing a semicolon and an improper indent.  
+
+One thing I would like to add in the next version of my app would be a GUI or graphics.  

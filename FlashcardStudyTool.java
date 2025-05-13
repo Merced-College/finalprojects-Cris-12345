@@ -1,3 +1,11 @@
+ /* Cristopher Gomez 
+  * 5/12/2025
+  FlashcardStudyTool.java v1
+  The code allows for user input of questions and asnwers that can be used to study the code creates 
+  flashcards and a quiz that also allows for retries when the user gets one of the questions wrong. 
+  code also allows the user to see the flashcards they have created and also has the ability to errase them.  
+  */
+
 import java.util.*; // Import utility classes like Scanner, HashMap, ArrayList, etc.
 
 public class FlashcardStudyTool { // Main class for the Flashcard Study Tool
